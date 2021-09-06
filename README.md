@@ -1,1 +1,1 @@
-# Пример объекта в Java
+# JavaExampleProject
