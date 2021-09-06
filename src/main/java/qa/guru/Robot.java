@@ -10,6 +10,7 @@ public class Robot {
     private int speed;
     private int strange;
     private int armor;
+    private boolean isBroken;
 
     public Robot(String modelName, String status, String os, float height, float weight, int speed, int strange, int armor) {
         this.modelName = modelName;
@@ -55,24 +56,42 @@ public class Robot {
         return armor;
     }
 
+    public boolean isBroken() {
+        return isBroken;
+    }
+
+    public void setBroken(boolean broken) {
+        isBroken = broken;
+    }
+
     // METHODS
     public void move() {
-        System.out.println("The robot is moving...");
+        if (this.isBroken) {
+            System.out.println(modelName + " cannot moving. It is broken!...");
+        } else {
+            System.out.println("The " + modelName + " robot is moving...");
+        }
+
     }
 
     public void jump() {
-        System.out.println("The robot is jumping...");
+        if (this.isBroken) {
+            System.out.println(modelName + " cannot jumping. It is broken!...");
+        } else {
+            System.out.println("The " + modelName + " is jumping...");
+        }
+
     }
 
     public void displayInfo() {
-        System.out.println("Robot: '" + modelName + '\'' + "\n"  +
-                "status:'" + status + '\'' + "\n"  +
-                "os:'" + os + '\'' + "\n"  +
-                "height: '" + '\'' + "\n"  +
-                "weight: '" + weight + '\'' + "\n"  +
-                "speed: '" + speed + '\'' + "\n"  +
-                "strange: '" + strange + '\'' + "\n"  +
-                "armor:" + armor );
+        System.out.println("Robot: '" + modelName + '\'' + "\n" +
+                "status:'" + status + '\'' + "\n" +
+                "os:'" + os + '\'' + "\n" +
+                "height: '" + '\'' + "\n" +
+                "weight: '" + weight + '\'' + "\n" +
+                "speed: '" + speed + '\'' + "\n" +
+                "strange: '" + strange + '\'' + "\n" +
+                "armor:" + armor);
     }
 
 }
